@@ -29,38 +29,51 @@
     stored on the object.
 */
 
+
 class Ticket {    
     constructor(items, orderTime, customerId){
         this.items = items;
-        this.time = orderTime;
-        this.id = customerId;
+        this.orderTime = orderTime;
+        this.customerId = customerId;
+        this.status = 'queued';
     }
 
-    updateStatus(newStatus)
-        this.status
-        console.log(`The order for customer ${customerId)`})
-}    
+    updateStatus(newStatus){
+        this.status = newStatus
+        console.log(`The order for customer ${this.customerId} is now ${this.status}`)
+    }
+}
 
-/*
-    Create a new instance of your class.
-    Save it to a variable called `firstTicket`.
+const firstTicket = new Ticket (['pizza', 'bread', 'soda',], '7:03 PM', 575)
 
-    You can use this sample data or make
-    up your own:
-    food ordered: pizza, bread, and soda
-    ordered at: 7:03 PM
-    customer: 575
-*/
-
-class firstTicket extends Ticket {
-    constructor(items, orderTime, customerId)
-       super(pizza, bread, soda)
-       this.
-
-
-/*
-    Call the `updateStatus` method on
-    `firstTicket` passing in the string
-    'cooking'
-*/
 console.log(firstTicket)
+
+firstTicket.updateStatus('cooking')
+
+
+
+// /*
+//     Create a new instance of your class.
+//     Save it to a variable called 'firstTicket'.
+
+
+//     You can use this sample data or make
+//     up your own:
+//     food ordered: pizza, bread, and soda
+//     ordered at: 7:03 PM
+//     customer: 575
+// */
+
+// const firstTicket = new Ticket (['pizza', 'bread', 'soda',], '7:03 PM', 575)
+// console.log(firstTicket)
+
+// class firstTicket extends Ticket {
+//     constructor(items, orderTime, customerId)
+//        super(pizza, bread, soda)
+//        this.
+
+// /*
+//     Call the 'updateStatus' method on
+//     'firstTicket' passing in the string
+//     'cooking'
+// */

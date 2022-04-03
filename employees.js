@@ -21,14 +21,12 @@
 
 class Employee {
     constructor(name, shifts){
-        this.name = name
-        this.shifts = shifts
+        this.name = name;
+        this.shifts = shifts;
     }    
 
 
-    getSchedule(name, shifts) {
-        this.name = 'Skyler'
-        this.shifts = 'Monday, Wednesday, and Friday'
+    getSchedule(){
     console.log(`${this.name} works on ${this.shifts}`)
     }
 }
@@ -43,7 +41,7 @@ class Employee {
     shifts: weekday mornings, weekday afternoons
 */
 
-let empOne = new Employee ('Jess', 'weekday mornings, weekday afternoons')
+const empOne = new Employee ('Jess', ['weekday mornings, weekday afternoons'])
 
 
 /*
@@ -51,7 +49,7 @@ let empOne = new Employee ('Jess', 'weekday mornings, weekday afternoons')
     `empOne` object.
 */
 
-// console.log(empOne)
+empOne.getSchedule()
 
 
 /*
@@ -66,9 +64,10 @@ let empOne = new Employee ('Jess', 'weekday mornings, weekday afternoons')
     dot or bracket notation.
 */
 
-// const empTwo = {...empOne}
+const empTwo = {...empOne}
 
-// const empTwo = Nick
+// empTwo.name = "Nick"
+
 
 
 //////////////////PROBLEM 2////////////////////
@@ -95,23 +94,20 @@ let empOne = new Employee ('Jess', 'weekday mornings, weekday afternoons')
 */
 
 class Manager extends Employee {
-    constructor(name, shfits, employees) {
+    constructor(name, shifts, employees){
       super(name, shifts)
-      this.employee = employee
+      this.employees = employees
     }
 
     getsEmployees(){
-        this.name = 'Brooke'
-        console.log(`${this.name} manages ${Employee}`)
+        console.log(`${this.name} manages ${this.employees}`)
     }
 
     addEmployee(emp){
-        this.name = emp
-        emp = 'Parker'
+        this.employees.push(emp)
     }
 
 }
-console.log(addEmployee)
 
 /*
     Create a new instance of your class.
@@ -124,7 +120,7 @@ console.log(addEmployee)
     employees: Cece and Schmidt
 */
 
-let manager = new Manager ('Winston', 'weekday mornings, weekday afternoons', 'Cece and Schmidt')
+const manager = new Manager ('Winston', ['weekday mornings', 'weekday afternoons'], ['Cece', 'Schmidt'])
 
 
 /*
@@ -132,7 +128,7 @@ let manager = new Manager ('Winston', 'weekday mornings, weekday afternoons', 'C
     `manager` object.  
 */
 
-console.log(getsEmployees)
+manager.getsEmployees()
 
 /*
     Call the `addEmployee` method on the 
@@ -140,7 +136,7 @@ console.log(getsEmployees)
     'Coach' or whatever name you'd like.
 */
 
-const coach = new addEmployee('Coach')
+manager.addEmployee('Coach')
 
 /*
     Call the `getEmployees` method on the
@@ -148,4 +144,4 @@ const coach = new addEmployee('Coach')
     that an employee was added.
 */
 
-console.log(getsEmployees)
+manager.getsEmployees()

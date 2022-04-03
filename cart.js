@@ -32,15 +32,20 @@ const cart = [
         price: 7.99
     }
 ]
-const summedPrice  = cart.reduce(price(a, c))
-    return a + c
 
+const summedPrice = cart.reduce((acc, ord) => {
+    return acc + ord.price
+}, 0)
+console.log(summedPrice)
 
-const summedPrice = finalPrice(cart)
+// const summedPrice  = cart.reduce(price(a, c))
+//     return a + c
 
-const summedPrice = cart.reduce((previousValue, currentValue) => previousValue + currentValue);
+// const summedPrice = finalPrice(cart)
 
-const finalPrice = cart.reduce(totalPrice)
+// const summedPrice = cart.reduce((previousValue, currentValue) => previousValue + currentValue);
+
+// const finalPrice = cart.reduce(totalPrice)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -58,11 +63,10 @@ const finalPrice = cart.reduce(totalPrice)
     decimals, for example: .06 for a 6% tax.
 */
 
-const calcFinalPrice = (`cartTotal`,`couponValue`, `tax`) => {
-    return cartTotal - couponValue * tax
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    return (cartTotal * (1 + tax)) - couponValue
 }
-
-
+console.log(calcFinalPrice(10, 2, .06))
 
 //////////////////PROBLEM 3////////////////////
 /*  
@@ -90,6 +94,15 @@ const calcFinalPrice = (`cartTotal`,`couponValue`, `tax`) => {
   dessert - a nice light dessert to go with a meaty meal. 
   drink - the most classic thing to wash the food down. 
 
+// name string
+// address string
+// phone number string
+// notes string
+// allergeis array
+// hasCreditCard boolean
+// regularCustomer boolean
+// discount array
+
 */
 
 /*
@@ -97,9 +110,9 @@ const calcFinalPrice = (`cartTotal`,`couponValue`, `tax`) => {
     guidelines.
 */
 
-const customerOrder = {
-    appetizer: "Bread, balsamic vinegar and olive oil",
-    entree: "Chicken Fried Steak",
-    dessert: "Angel Food Cake",
-    drink: "Coke"
+const customer = {
+    name: 'Skyler',
+    address: 'somewhere',
+    phoneNumber: '78893489',
+    notes: 'super cool person'
 }

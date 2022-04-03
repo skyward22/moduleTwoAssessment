@@ -30,13 +30,14 @@
     'kids'
 */
 
-const Pizza = {
+const pizza = {
     name: "BLT",
     price: 12,
     category: "cold",
-    popularity: 10
-    rating: 9
-    tags: "California, Pizza, Meat"
+    popularity: 10,
+    rating: 9,
+    tags: ['california', 'pizza', 'meat']
+}
 
 
 
@@ -49,8 +50,10 @@ const Pizza = {
     Use dot notation to access the value.
 */
 
-const {popularity} = Pizza
-console.log(popularity)
+// const {popularity} = Pizza
+// console.log(popularity)
+
+console.log(pizza.popularity)
 
 /*
     Second, log the second tag in your pizza's
@@ -59,8 +62,7 @@ console.log(popularity)
     get the value.
 */
 
-const {tag} = Pizza
-console.log(tag)
+console.log(pizza.tags[1])
 
 
 /*
@@ -70,9 +72,10 @@ console.log(tag)
     Print the value of your new price variable.
 */
 
-const {price: myPrice} = meal
-console.log(myPrice)
+// const {price: myPrice} = meal
+// console.log(myPrice)
 
+const {price} = pizza
 
 /*
     Fourth, and last, destructure the category
@@ -80,9 +83,12 @@ console.log(myPrice)
 
     Print the value of your category variable. 
 */
-const {category: myCategory} = meal
-console.log(myCategory)
+// const {category: myCategory} = meal
+// console.log(myCategory)
 
+const {category} = pizza
+
+console.log(category)
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -95,13 +101,48 @@ console.log(myCategory)
     tags. That way, you'll be able to use this
     data in some functions that you'll write.
 */
-const foodArr = {
+const foodArr = [
+   {
     name: "Peporroni",
     price: 13,
     category: "hot",
-    popularity: 9
-    rating: 10
-    tags: "Classic"
+    popularity: 9,
+    rating: 10,
+    tags: ['classic', 'hot', 'pizza']
+   },
+   {
+    name: "Cheese",
+    price: 12,
+    category: "cold",
+    popularity: 10,
+    rating: 9,
+    tags: ['plain', 'cheese', 'pizza']
+   },
+   {
+    name: "Meaty",
+    price: 15,
+    category: "meat",
+    popularity: 8,
+    rating: 7,
+    tags: ['Meaty', 'stuffed', 'pizza']
+   },
+   {
+    name: "Hawaiian",
+    price: 5,
+    category: "fruit",
+    popularity: 1,
+    rating: 1,
+    tags: ['fruit', 'bad', 'pizza']
+   },
+    {
+    name: "BLT",
+    price: 20,
+    category: "sandwich",
+    popularity: 10,
+    rating: 10,
+    tags: ['amazing', 'sandwich', 'pizza']
+   }
+]    
 
 
 
@@ -116,13 +157,17 @@ const foodArr = {
     You can check for any tag that at least 1 of
     your food objects has.
 */
-const filteredFood = (foodArr, callback, tag) => {
-    foodArr.forEach(function(product){
-        callback(product, tage)
+// const filteredFood = (foodArr, callback, tag) => {
+//     foodArr.forEach(function(product){
+//         callback(product, tage)
 
-const filteredFood = foodArr.filter(tag)
+// const filteredFood = foodArr.filter(tag)
 
+const filteredFood = foodArr.filter(pizzaObj => {
+    return pizzaObj.tags.includes('bad')
+})
 
+console.log(filteredFood)
 
 //////////////////PROBLEM 5////////////////////
 /* 
@@ -163,12 +208,24 @@ const filteredFood = foodArr.filter(tag)
     Return the filtered array from the entire function
 */
 
-function filterByProperty(property, number, type){
-    property = String(rating, popularity, price)
-    number = 10
-    type = true
-}
+// function filterByProperty(property, number, type){
+//     property = String(rating, popularity, price)
+//     number = 10
+//     type = true
+// }
 
+const filterByProperty = (property, number, type) => {
+    const filteredArr = foodArr.filter(pizza => {
+        if(type === "above"){
+            return pizza[property] > number
+        } else if (type === "below"){
+            return pizza[property] < number
+        } else {
+            return 'you did not pass in a valid type'
+        }
+    })
+    return filteredArr
+}
 
 /*
     Invoke the `filterByProperty` function passing
@@ -177,4 +234,6 @@ function filterByProperty(property, number, type){
     You'll have to console.log to see the filtered array
 */
 
-console.log(filterByProperty)
+// console.log(filterByProperty)
+
+console.log(filterByProperty('price', 15, 'above'))
